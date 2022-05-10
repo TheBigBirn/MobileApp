@@ -19,8 +19,13 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Release App android
 
+https://docs.flutter.dev/deployment/android#signing-the-app
+
 https://www.youtube.com/watch?v=g0GNuoCOtaQ&ab_channel=JohannesMilke
 
 1. Create Logo and configure:
    https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
    https://pub.dev/packages/flutter_launcher_icons
+
+2. Rename Package to change app name:
+   https://pub.dev/packages/rename
