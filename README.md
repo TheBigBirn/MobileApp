@@ -1,22 +1,3 @@
-# my_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-# Brad's Notes
-
 ## Test App - Android
 
 ## Release App - android
@@ -37,14 +18,16 @@ https://www.youtube.com/watch?v=g0GNuoCOtaQ&ab_channel=JohannesMilke
   - pub global run rename --bundleId com.bradbirney.tok
 
 2. Sign App
+   - Create a keystore (.jks) in android folder
+     - https://docs.flutter.dev/deployment/android#create-an-upload-keystore
+     - keytool -genkey -v -keystore upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+     - keytool -genkey -v -keystore [keyName].jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias [alias]
+     - remember keystore password for next step
+     - move .jks file to android/app folder
    - Add "key.properties" to "./android" folder
      - https://docs.flutter.dev/deployment/android#reference-the-keystore-from-the-app
      - Add store and key passwords to key.properties
-   - Create a keystore (.jks) in android folder
-     - https://docs.flutter.dev/deployment/android#create-an-upload-keystore
-     - keytool -genkey -v -keystore %USERPROFILE%\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-     - use key.properties store password for keystore password
-     - move to android folder
+     - Add path to .jks file
    - Configure signing in gradle
      - https://docs.flutter.dev/deployment/android#configure-signing-in-gradle
      - copy keystore properties code blocks into build.gradle file
@@ -74,3 +57,26 @@ https://www.youtube.com/watch?v=g0GNuoCOtaQ&ab_channel=JohannesMilke
        - invite only
      - Internal
        - invite only, max 100 users
+
+## Setup CI/CD Pipeline
+
+- Github Actions
+  - https://github.com/marketplace?type=actions
+  - https://github.com/RobertBrunhage/flutter-github-action/blob/master/.github/workflows/ci.yml
+  -
+- Android
+  - https://medium.com/@niraj_prajapati/automate-android-app-publishing-on-play-store-using-github-actions-554de7801c36
+  -
+
+## Flutter Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
