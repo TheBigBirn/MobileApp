@@ -62,7 +62,7 @@ jobs:
         id: sign
         uses: r0adkll/sign-android-release@v1
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: build/app/outputs/bundle/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -72,7 +72,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app
-          path: app/build/outputs/bundle/release/app-release.aab
+          path: build/app/outputs/bundle/release/app-release.aab
       - name: Create service_account.json
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
