@@ -1,6 +1,41 @@
-## Test App - Android
+## Release App - IOS
 
-## Release App - android
+Collect Info:
+
+- Team ID - WY98B4934N
+- Bundle ID - com.bradbirney.tok
+- Provisioning Profile:
+  - Method - (development or app-store)
+  - Name - pp-tok-d-1
+
+https://betterprogramming.pub/deploy-an-ios-app-to-testflight-or-the-app-store-using-github-actions-c4d7082b1430
+
+Code Signing and Provisioning Profile:
+
+- Turn off auto managed signing
+  - "auto managed signing potentially results in a new certificate and corresponding provisioning profile being created every time the workflow runs"
+- Create App ID
+- Create Certificate
+- Create Device
+- Create Provisioning Profile
+  - Download Profile
+  - import profile Runner > Signing & Capabilities tab
+    - (Sets Build Settings)
+    - Provisioning Profile = name of the imported profile
+    - Code Signing Identity = iOS Distribution
+    - Development Team = team name associated with the provisioning profile
+  - Add exportOptions.plist under ios folder (flutter specific) - https://jtmuller5-98869.medium.com/flutter-build-an-ipa-90520e813a96 - Update PP Method, TeamId, BundleId, and PP name
+
+Project Setup:
+GitHub Secrets:
+CI and Scripts:
+
+Manual Release Notes:
+
+- https://www.youtube.com/watch?v=DLvdZtTAJrE&ab_channel=SeanAllen
+- Export Compliance Information: Does your app qualify for any of the exemptions provided in Category 5, Part 2 of the U.S. Export Administration Regulations? - https://www.bis.doc.gov/index.php/policy-guidance/encryption/4-reports-and-reviews/a-annual-self-classification
+
+## Release App - Android
 
 https://docs.flutter.dev/deployment/android#signing-the-app
 
