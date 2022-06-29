@@ -29,17 +29,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: "zulu"
-          java-version: "17"
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "2.x"
-          channel: "stable"
-      - run: flutter pub get
-      - run: flutter clean
-      - run: flutter build ipa
+      # - uses: actions/setup-java@v3
+      #   with:
+      #     distribution: "zulu"
+      #     java-version: "17"
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: "2.x"
+      #     channel: "stable"
+      # - run: flutter pub get
+      # - run: flutter clean
+      # - run: flutter build ipa
 
       - name: Set environment variables from project settings
         run: |
@@ -55,6 +55,10 @@ jobs:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
+
+      - name: Build app
+        run: |
+          fastlane run build_app
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
