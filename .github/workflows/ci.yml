@@ -31,6 +31,10 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
+      - name: Build app
+        run: |
+          fastlane run build_app
+
       - name: Set environment variables from project settings
         run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
@@ -45,10 +49,6 @@ jobs:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
-
-      - name: Build app
-        run: |
-          fastlane run build_app
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
