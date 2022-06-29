@@ -39,7 +39,7 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       - run: flutter clean
-      - run: flutter build ios --release --export-options-plist=$HOME/exportOptions.plist
+      - run: flutter build ipa
 
       - name: Set environment variables from project settings
         run: |
